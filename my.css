@@ -1,0 +1,38 @@
+body {
+    margin:0;
+    font-size:14px;
+    font-family:Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
+    line-height:1.5;
+    color:#333;
+    /* background-color:#fff; */
+    min-height:100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+        url('https://oss.yansheng.xyz/wallpaper/qinshimingyue.jpg') no-repeat 0% 0%/ cover;
+    cursor:url('https://oss.yansheng.xyz/ico/favicon-2019110906554413.ico'), default;
+}
+
+.article-entry li code, .article-entry p code {
+    color: #c7254e;
+    /* background-color: #f9f2f4; */
+    background-color: rgba(249, 242, 244, .7);
+    border-radius: 2px;
+    padding:2px 4px;
+    margin:0 3px;
+    /* background:#ddd; */
+    /* border:2px solid #ccc; */
+    font-family:Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace;
+    word-wrap:break-word;
+    /* font-size:14px */
+}
+.article-entry blockquote {
+    background:#ddd;
+    border-left:5px solid #ccc;
+    padding:15px 20px;
+    margin-top:10px;
+    border-left:5px solid #657b83;
+    /* background:#f6f6f6; */
+    background: rgba(246, 246, 246, .7);
+    /* 如果超长，自动截断 */
+    word-wrap:break-word;
+    word-break:break-all;
+}
