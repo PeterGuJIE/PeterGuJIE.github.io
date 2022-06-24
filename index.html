@@ -198,6 +198,365 @@
             
 
   
+    <article id="post-C语言运算符和类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/18/C%E8%AF%AD%E8%A8%80%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">C语言运算符和类型转换</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/18/C%E8%AF%AD%E8%A8%80%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
+        <time datetime="2022-06-18T12:17:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-18</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="运算符分类"><a href="#运算符分类" class="headerlink" title="运算符分类"></a>运算符分类</h2><ol>
+<li><p>单目运算</p>
+<ul>
+<li>只有一个操作数 如:i++</li>
+</ul>
+</li>
+<li><p>双目运算</p>
+<ul>
+<li>有两个操作数 如:a+b</li>
+</ul>
+</li>
+<li><p>三目运算</p>
+<ul>
+<li>也称为问号表达式 如:a&gt;b?a:b</li>
+</ul>
+</li>
+<li><p>功能分类:算术运算符、赋值运算符、关系运算符、逻辑运算符、位运算符</p>
+</li>
+</ol>
+<h2 id="运算符的优先级和结合性"><a href="#运算符的优先级和结合性" class="headerlink" title="运算符的优先级和结合性"></a>运算符的优先级和结合性</h2><ol>
+<li><p>C语言中,运算符的运算优先级共分为15 级。1 级最高,15 级最低 </p>
+<ul>
+<li>优先级1：(<strong>左到右</strong>)<br>- 运算符[]，数组名[常量表达式]<br>- 运算符()，(表达式)&#x2F;函数表达式(表达式)<br>- 运算符.，对象.成员名<br>- 运算符-&gt;，对象指针-&gt;成员名</li>
+<li>优先级2：(<strong>右到左</strong>)<br>- 运算符-，符号表达式-<br>- 运算符(类型)，(数据类型)表达式<br>- 运算符++，++变量名&#x2F;变量名++<br>     -  前缀表达式:++x, –x;其中x表示变量名,先完成变量的自增自减1运算,再用x的值作为表达式的值;即“先变后用”,也就是变量的值先变,再用变量的值参与运算<br>- 运算符–，–变量名&#x2F;变量名–<br>     - 后缀表达式:x++, x–;先用x的当前值作为表达式的值,再进行自增自减1运算。即“先用后变”,也就是先用变量的值参与运算,变量的值再进行自增自减变化<br>- 运算符<em>，指针变量</em><br>- 运算符&amp;，&amp;取地址变量名<br>- 运算符！，逻辑非表达式<br>    - 先判断条件A是否成立，如果添加A成立, 那么结果就为0，即”假”；反之结果就为1，即”真”<br>- 运算符~，按位取反表达式<br>- 运算符sizeof，长度表达式<br>    - sizeof可以用来计算一个变量或常量、数据类型所占的内存字节数</li>
+<li>优先级3：(<strong>左到右</strong>)<br>- 运算符&#x2F;，表达式&#x2F;表达式<br>- 运算符*，表达式乘表达式<br>- 运算符%，整型表达式&#x2F;整型表达式(余数、取模)  </li>
+<li>优先级4：(<strong>左到右</strong>)<br>- 运算符+，表达式+表达式<br>- 运算符-，表达式-表达式</li>
+<li>优先级5：(<strong>左到右</strong>)<br>- 运算符&lt;&lt;，变量&lt;&lt;表达式(相当于变量*2)<br>- 运算符&gt;&gt;，变量&gt;&gt;表达式(相当于变量&#x2F;2)</li>
+<li>优先级6：(<strong>左到右</strong>)<br>- 运算符&gt;，表达式&gt;表达式<br>- 运算符&gt;&#x3D;，表达式&gt;&#x3D;表达式<br>- 运算符&lt;，表达式&lt;表达式<br>- 运算符&lt;&#x3D;，表达式&lt;&#x3D;表达式</li>
+<li>优先级7：(<strong>左到右</strong>)<br>- 运算符&#x3D;&#x3D;，表达式&#x3D;&#x3D;表达式<br>- 运算符!&#x3D;，表达式!&#x3D;表达式</li>
+<li>优先级8：(<strong>左到右</strong>)<br>- 运算符&amp;，表达式&amp;表达式(两个数中同时为1，结果为1，否啊为0)<br>      - 00000011 &amp; 00000101 &#x3D; 00000001</li>
+<li>优先级9：(<strong>左到右</strong>)<br>- 运算符^，表达式^表达式(两个数中两个相应位不同，结果为1，否则为0)<br>      - 00000010 ^ 00000100 &#x3D; 00000110 </li>
+<li>优先级10：(<strong>左到右</strong>)<br>- 运算符|，表达式|表达式(两个数中一个为1，结果为1)<br>      - 00000010 | 00000100 &#x3D; 00000110 </li>
+<li>优先级11：(<strong>左到右</strong>)<br>- 运算符&amp;&amp;，表达式&amp;&amp;表达式<br>    - 如果”条件A”不成立，不会再去判断”条件B”是否成立, 因为逻辑与只要一个不为真结果都不为真</li>
+<li>优先级12：(<strong>左到右</strong>)<br>- 运算符||，表达式||表达式<br>    - 先判断”条件A”是否成立，如果”条件A”不成立，接着再判断”条件B”是否成立, 如果”条件B”成立，结果就为1，即”真”;反结果为0，即”假”</li>
+<li>优先级13：(<strong>右到左</strong>)<br>- 运算符?:，表达式1?表达式2:表达式3<br>    - 如果”表达式1”为真，三目运算符的运算结果为”表达式2”的值(结果A)，否则为”表达式3”的值(结果B)</li>
+<li>优先级14：(<strong>右到左</strong>)<br>- 运算符&#x3D;，变量&#x3D;表达式<br>- 运算符&#x2F;&#x3D;，变量&#x2F;&#x3D;表达式<br>- 运算符*&#x3D;，变量乘&#x3D;表达式<br>- 运算符%&#x3D;，变量%&#x3D;表达式<br>- 运算符+&#x3D;，变量+&#x3D;表达式<br>- 运算符-&#x3D;，变量-&#x3D;表达式<br>- 运算符&lt;&lt;&#x3D;，变量&lt;&lt;&#x3D;表达式<br>- 运算符&gt;&gt;&#x3D;，变量&gt;&gt;&#x3D;表达式<br>- 运算符&amp;&#x3D;，变量&amp;&#x3D;表达式<br>- 运算符^&#x3D;，变量^&#x3D;表达式<br>- 运算符|&#x3D;，变量|&#x3D;表达式</li>
+<li>优先级15：(<strong>左到右</strong>)<br>- 运算符,，表达式,表达式,…<br>    - 逗号运算符会从左至右依次取出每个表达式的值, 最后整个逗号表达式的值等于最后一个表达式的值</li>
+</ul>
+</li>
+</ol>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ol>
+<li>强制类型转换<br> <code>将double转换成int</code><br> <code>int a = (int)10.5;</code></li>
+<li>算数转换<ul>
+<li>系统会自动对占用内存较少的类型做一个’’自动类型提升’’的操作, 先将其转换为当前算数表达式中占用内存高的类型, 然后再参与运算 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 当前表达式用1.0占用8个字节, 2占用4个字节</span><br><span class="line">   // 所以会先将整数类型2转换为double类型之后再计算</span><br><span class="line">   double d = 1.0 / 2;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>赋值转换<ul>
+<li>参与计算的是什么类型, 结果就是什么类型 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 结果为0, 因为参与运算的都是整型</span><br><span class="line">   double a = (double)(1 / 2);</span><br><span class="line">   // 结果为0.5, 因为1被强制转换为了double类型, 2也会被自动提升为double类型</span><br><span class="line">   double b = (double)1 / 2;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>类型转换并不会影响到原有变量的值 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">   int main()&#123;</span><br><span class="line">       double d = 3.14;</span><br><span class="line">       int num = (int)d;</span><br><span class="line">       printf(&quot;num = %d\n&quot;, num); // 3</span><br><span class="line">       printf(&quot;d = %lf\n&quot;, d); // 3.140000</span><br><span class="line">	return 0;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">运算符</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类型转换</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/18/C%E8%AF%AD%E8%A8%80%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-C语言关键字和数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/10/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">C语言关键字和数据类型</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/10/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+        <time datetime="2022-06-10T07:20:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="关键字特征"><a href="#关键字特征" class="headerlink" title="关键字特征"></a>关键字特征</h2><ol>
+<li>全部都是小写</li>
+<li>在开发工具中会显示特殊颜色</li>
+<li>因为关键字在C语言中有特殊的含义, 所以不能用作变量名、函数名等</li>
+<li>C语言中一共有32个关键字</li>
+</ol>
+<blockquote>
+<p>char short int long float double if else</p>
+</blockquote>
+<blockquote>
+<p>return do while for switch case break continue</p>
+</blockquote>
+<blockquote>
+<p>default goto sizeof auto register static extern unsigned</p>
+</blockquote>
+<blockquote>
+<p>signed typedef struct enum union void const volatile</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/10/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">关键字</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据类型</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/10/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-C语言函数和注释" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/02/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E5%92%8C%E6%B3%A8%E9%87%8A/">C语言函数和注释</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/02/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E5%92%8C%E6%B3%A8%E9%87%8A/" class="archive-article-date">
+        <time datetime="2022-06-01T16:17:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数格式"><a href="#函数格式" class="headerlink" title="函数格式"></a>函数格式</h2><ol>
+<li><p>int 代表函数执行之后会返回一个整数类型的值</p>
+</li>
+<li><p>main 代表这个函数的名字叫做main</p>
+</li>
+<li><p>() 代表这是一个函数</p>
+</li>
+<li><p>{} 代表这个程序段的范围</p>
+</li>
+<li><p>return 0; 代表函数执行完之后返回整数0</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">     // insert code here</span><br><span class="line">     return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+    
+    <a class="article-more-a" href="/2022/06/02/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E5%92%8C%E6%B3%A8%E9%87%8A/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">函数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">注释</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/02/C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E5%92%8C%E6%B3%A8%E9%87%8A/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-第一篇博文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -227,7 +586,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="初次来到GitHub"><a href="#初次来到GitHub" class="headerlink" title="初次来到GitHub"></a>初次来到GitHub</h3><p>   我是一个机电一体化专业的，正在学习C语言。我感觉计算机语言真的是个很神奇的东西，就像HEXO博客一样。虽然陆陆续续的我花了大概有15天，但是功夫不负有心人，终于完成了。<br>
+    <h3 id="初次来到GitHub"><a href="#初次来到GitHub" class="headerlink" title="初次来到GitHub"></a>初次来到GitHub</h3><p>   机电一体化是我的专业，我正在学习C语言。我感觉计算机语言真的是个很神奇的东西，就像HEXO博客一样。虽然陆陆续续的我花了大概有15天，但是功夫不负有心人，终于完成了。<br>
     
     <a class="article-more-a" href="/2022/05/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/#more">more >></a>
     
@@ -401,7 +760,31 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">关键字</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据类型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">运算符</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类型转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注释</a>
               </li>
             
             <div class="clearfix"></div>
