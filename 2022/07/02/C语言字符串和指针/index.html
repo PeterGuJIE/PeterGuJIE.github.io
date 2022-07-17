@@ -7,18 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zhiye.com">
-  <title>标签 | 枝叶博客</title>
+  <title>C语言字符串和指针 | 枝叶博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://zhiye.com/tags/index.html">
+  <meta name="description" content="字符串 C语言中供了丰富的字符串处理函数，大致可分为字符串的输入、输出、合并、修改、比较、转 换、复制、搜索几类。   使用输入输出的字符串函数,在使用前应包含头文件”stdio.h” 使用其它字符串函数则应包含头文件”string.h”   字符串输出函数:puts()  puts函数完全可以由printf函数取代。当需要按一定格式输出时，通常使用printf函数 把字符数组中的字符串输出到显示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言字符串和指针">
+<meta property="og:url" content="http://zhiye.com/2022/07/02/C%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="枝叶博客">
+<meta property="og:description" content="字符串 C语言中供了丰富的字符串处理函数，大致可分为字符串的输入、输出、合并、修改、比较、转 换、复制、搜索几类。   使用输入输出的字符串函数,在使用前应包含头文件”stdio.h” 使用其它字符串函数则应包含头文件”string.h”   字符串输出函数:puts()  puts函数完全可以由printf函数取代。当需要按一定格式输出时，通常使用printf函数 把字符数组中的字符串输出到显示">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-18T18:00:32.000Z">
-<meta property="article:modified_time" content="2022-05-18T18:02:14.400Z">
+<meta property="article:published_time" content="2022-07-02T08:35:41.000Z">
+<meta property="article:modified_time" content="2022-07-15T13:17:07.493Z">
 <meta property="article:author" content="倥 絔">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="枝叶博客" type="application/atom+xml">
@@ -193,22 +197,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-C语言字符串和指针" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      标签
+      C语言字符串和指针
     </h1>
   
 
 
   
   
-<a href="/tags/index.html" class="archive-article-date">
-        <time datetime="2022-05-18T18:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
+<a href="/2022/07/02/C%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%8C%87%E9%92%88/" class="archive-article-date">
+        <time datetime="2022-07-02T08:35:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-02</time>
 </a>
 
   
@@ -221,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">3.1k字</span>
     </span>
   </span>
 
@@ -230,7 +234,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">12分</span>
     </span>
   </span>
 </div>
@@ -241,7 +245,170 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ol>
+<li><p>C语言中供了丰富的字符串处理函数，大致可分为字符串的输入、输出、合并、修改、比较、转 换、复制、搜索几类。 </p>
+<ul>
+<li>使用输入输出的字符串函数,在使用前应包含头文件”stdio.h”</li>
+<li>使用其它字符串函数则应包含头文件”string.h”</li>
+</ul>
+</li>
+<li><p>字符串输出函数:puts()</p>
+<ul>
+<li>puts函数完全可以由printf函数取代。当需要按一定格式输出时，通常使用printf函数</li>
+<li>把字符数组中的字符串输出到显示器，即在屏幕上显示该字符串并换行</li>
+<li>但是不能自定义输出格式，例如 puts(“hello %i”) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char ch[] = &quot;hello&quot;;</span><br><span class="line">puts(ch);//输出结果：hello</span><br></pre></td></tr></table></figure>
+ <span id="more"></span></li>
+</ul>
+</li>
+<li><p>字符串输入函数:gets()</p>
+<ul>
+<li>可以看出当输入的字符串中含有空格时,输出仍为全部字符串。说明gets函数并不以空格作为字符串输入结束的标志直到遇到回车结束，但回车符不属于这个字符串。这是与scanf函数不同的。</li>
+<li>gets函数很容易导致数组下标越界，是一个不安全的字符串操作函数</li>
+</ul>
+</li>
+<li><p>字符串输出函数:putchar()</p>
+<ul>
+<li>putchar()向终端输出一个字符，格式: putchar(ch)，可以是0~127之间的整型数(不能超过127，就是ASCII码)</li>
+<li>当ch为一个被单引号(英文状态下)引起来的字符时，输出该字符(注：该字符也可为转义字符)</li>
+<li>当输出错误的时候，返回 EOF(End of file)文件结束符</li>
+</ul>
+</li>
+<li><p>字符串输入函数:getchar()</p>
+<ul>
+<li>getchar()有一个整型的返回值，当发生读取错误的时候，返回整型值-1，当读取正确的时候，它会返回用户所输字符的ASCII直到遇到回车结束(回车字符也放在缓冲区中)  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char ch;</span><br><span class="line">    ch = getchar();//输入一个a，然后按下回车</span><br><span class="line">    putchar(ch);//输出a</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>gets()、puts()、putchar()和getchar()函数都包含在头文件stdio.h中，使用时需包含此头文件</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>字符串长度</p>
+<ul>
+<li>sizeof字符串在内存中是逐个字符存储的,一个字符占用一个字节，所以字符串的结束符长度也是占用的内存单元的字节数。(包含\0) <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char ch[] = &quot;hello&quot;;</span><br><span class="line">int size = sizeof(name);//包含\0</span><br><span class="line">printf(&quot;size = %d\n&quot;,size);//输出结果 6</span><br></pre></td></tr></table></figure></li>
+<li>strlen字符串是测字符串的实际长度(不含字符串结束标志’\0’)并作为函数返回值。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char ch[] = &quot;hello&quot;;</span><br><span class="line">int len = strlen(name);</span><br><span class="line">printf(&quot;len = %d\n&quot;,len);//输出结果 5</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>字符串连接函数:strcat(char *strcat(char *arr1, const char *arr2))</p>
+<ul>
+<li>把字符数组2中的字符串连接到字符数组1中字符串的后面，并删去字符串1后的串标志 “\0”。本函数返回值是字符数组1的首地址。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;welcome to&quot;;</span><br><span class="line">char arr2[20] = &quot;ShangHai&quot;;</span><br><span class="line">strcat(arr1,arr2);</span><br><span class="line">puts(arr1);//输出结果 welcome to ShangHai</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>本函数把初始化赋值的字符数组与动态赋值的字符串连接起来。要注意的是字符数组1应定义足够的长度，否则不能全部装入被连接的字符串里。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>字符串拷贝函数:strcpy(char *strcpy(char *arr1, const char *arr2))</p>
+<ul>
+<li>把字符数组2中的字符串拷贝到字符数组1中。结束标志”\0”也一同拷贝。字符数名2，也可以是一个字符串常量。这时相当于把一个字符串赋予一个字符数组。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;welcome to&quot;;</span><br><span class="line">char arr2[20] = &quot;ShangHai&quot;;</span><br><span class="line">strcpy(arr1,arr2);</span><br><span class="line">puts(arr1);//输出结果 ShangHai</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>本函数要求字符数组1应有足够的长度，否则不能全部装入所拷贝的字符串。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>字符串比较函数:strcmp(int strcmp(const char *arr1, const char *arr2))</p>
+<ul>
+<li>按照ASCII码顺序比较两个数组中的字符串,并由函数返回值返回比较结果。 <ul>
+<li>字符串1&#x3D;字符串2，返回值&#x3D;0</li>
+<li>字符串1&gt;字符串2，返回值&#x3D;1</li>
+<li>字符串1&lt;字符串2，返回值&#x3D;-1 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;a&quot;;</span><br><span class="line">char arr2[20] = &quot;b&quot;;</span><br><span class="line">printf(&quot;%d&quot;,strcmp(arr1,arr2));//输出结果 -1</span><br><span class="line">char arr1[50] = &quot;a&quot;;</span><br><span class="line">char arr2[20] = &quot;a&quot;;</span><br><span class="line">printf(&quot;%d&quot;,strcmp(arr1,arr2));//输出结果 0</span><br><span class="line">char arr1[50] = &quot;b&quot;;</span><br><span class="line">char arr2[20] = &quot;a&quot;;</span><br><span class="line">printf(&quot;%d&quot;,strcmp(arr1,arr2));//输出结果 1</span><br><span class="line">puts(arr1);//输出结果 ShangHai</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断字符串arr2是否是arr1的子串:strstr(char *strstr(const char *arr1, const char *arr2))</p>
+<ul>
+<li>如果是子串，则该函数返回arr1字符串从arr2第一次出现的位置开始到str1结尾的字符串；否则返回NULL。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;abcdef1234&quot;;</span><br><span class="line">char arr2[20] = &quot;de&quot;;</span><br><span class="line">printf(&quot;%d&quot;,strstr(arr1,arr2));//输出结果 def1234  </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>分解字符串函数：strtok(char *strtok(char s[], const char *delim))</p>
+<ul>
+<li>当strtok()在参数s的字符串中发现参数delim中包含的分割字符时,则会将该字符改为\0 字符。在第一次调用时，strtok()必需给予参数s字符串，往后的调用则将参数s设置成NULL。每次调用成功则返回指向被分割出片段的指针</li>
+<li>需要注意的是，使用该函数进行字符串分割时，会破坏被分解字符串的完整，调用前和调用后的s已经不一样了。第一次分割之后，原字符串str是分割完成之后的第一个字符串，剩余的字符串存储在一个静态变量中，因此多线程同时访问该静态变量时，则会出现错误。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;abc.def@ghd_cg.&quot;</span><br><span class="line">char *p;</span><br><span class="line">p = strtok(arr1,&quot;._@&quot;);</span><br><span class="line">while(p != NULL)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s\n&quot;, p);//输出结果 第一次：abc，第二次：def，第三次：ghd，第四次：cg</span><br><span class="line">    p = strtok(NULL,&quot;._@&quot;);</span><br><span class="line">&#123;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>strtok函数会破坏被分解字符串的完整，调用前和调用后的s已经不一样了</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>所指向的字符串中搜索第一次出现字符 c（一个无符号字符）的位置:strchr(char *strchr(const char *arr, char&#x2F;int c))</p>
+<ul>
+<li>本函数返回在字符串arr中第一次出现字符c的位置，如果未找到该字符则返回 NULL<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">char arr1[50] = &quot;http://www.baidu.com&quot;;</span><br><span class="line">char *p;</span><br><span class="line">p = strchr(arr1,&#x27;.&#x27;);</span><br><span class="line">if(p != NULL)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s\n&quot;, p);//输出结果 .baidu.com</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    puts(&quot;NULL!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>在同一种编译器下, 所有指针占用的内存空间是一样的(4个字节，32位编译器),但不同类型的变量却占不同的字节数。</p>
+<ol>
+<li>定义了一个int*类型的变量arr，表示arr向int类型变量值的指针。这样，arr变量将存储一个地址，这个地址是另一个int变量所在的地址。<ul>
+<li>需要注意的一个点是，当一个定义语句有几个变量时，每个变量前都必须加上*<br> <code>int *arr1,*arr2;</code><blockquote>
+<p>一个指针必须在定义时或者在赋值语句中初始化，可以初始化成0，NULL或者一个变量的地址。0，NULL表示指针不指向任何东西（推荐使用NULL，因为使用0时还得进行类型转换）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>访问指针所指向的存储空间<ul>
+<li>&amp;一元操作符，取地址操作，返回操作数(必须是一个变量)的地址 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = 3;</span><br><span class="line">int *arr;</span><br><span class="line">arr = &amp;x;</span><br></pre></td></tr></table></figure></li>
+<li>在定义变量的时候 * 是一个类型说明符,说明定义的这个变量是一个指针变量<br> <code>int *p = NULL;//定义指针变量</code></li>
+<li>在不是定义变量的时候 * 是一个操作符,代表访问指针所指向存储空间 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = 5;</span><br><span class="line">int *p = &amp;a;</span><br><span class="line">printf(&quot;a = %d&quot;, *p);//访问指针变量</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>按引用向函数传递参数<ul>
+<li>通过指针来实现交换两个数的函数 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void swap(int*a,int*b)</span><br><span class="line">&#123;</span><br><span class="line">    int tmp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = tmp;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int num1 = 10;</span><br><span class="line">    int num2 = 20;</span><br><span class="line">    swap(&amp;num1,&amp;num2);</span><br><span class="line">    printf(&quot;a = %d,b = %d\n&quot;, num1, num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>用const修饰的变量表示常量，即一旦初始化之后不可再次更改。可以使用const修饰符对指针变量进行修饰，但放在不同位置中表示不同的含义<ul>
+<li>表示指向的数据为常量，不可更改，但可以改变指针的地址值<br> <code>const int *str;</code></li>
+<li>表示指针地址为常量，不可更改，但可以改变指针指向的数据的值<br> <code>int* const str;</code></li>
+<li>表示指针地址和指向的数据都为常量，都不可更改<br> <code>const int* const str;</code></li>
+</ul>
+</li>
+<li>sizeof 是一个编译时的操作符，可以操作变量名，类型或者值，计算字节数。其对数组、指针和一般变量的差别。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//32位编译器</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int arr[20];</span><br><span class="line">    int *str = arr;</span><br><span class="line">    double *d;</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(i));       // 4</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(arr));     // 20 * 4 = 80</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(str));     // 4</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(d));       // 4</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(long int));// 4</span><br><span class="line">    printf(&quot;%d\n&quot;, sizeof(1.1));     // 8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>指针可以访问数组元素，并且在指针指向数组元素时，可以进行指针运算<ul>
+<li>一个变量有地址,一个数组包含若干元素,每个数组元素也有相应的地址, 指针变量也可以保存数组元素的地址<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a[10] = &#123;1,3,5,7,9,11&#125;;</span><br><span class="line">int *p;</span><br><span class="line">p = &amp;a[0];//等价于p=a 或者 int *p=a;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 数组名a不代表整个数组,只代表数组首元素的地址。<br>“p&#x3D;a;”的作用是把a数组的<strong>首元素</strong>的地址赋给指针变量p,而不是把数组a各元素的值赋给p</p>
+</blockquote>
+</li>
+<li>加一个整数(用+或+&#x3D;)，如p+1</li>
+<li>减一个整数(用-或-&#x3D;)，如p-1</li>
+<li>自加运算,如p++，++p</li>
+<li>自减运算,如p–，–p <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int arr[20] = &#123;0&#125;;</span><br><span class="line">int *str = arr;</span><br><span class="line">for(int i = 0; i &lt; 20; i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d &quot;, *(str++));//遍历数组</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line">int *str1 = &amp;arr[0];</span><br><span class="line">int *str2 = &amp;arr[4];</span><br><span class="line">printf(&quot;%d\n&quot;, str2 - str1);//4</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>访问数组元素,可用下面两种方法: 下标法, 如a[i]形式或者指针法, *(p+i)形式<br><strong>注意</strong>：数组名虽然是数组的首地址，但是数组名所所保存的数组的首地址是不可以更改的  </p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int x[10];</span><br><span class="line">x++;//错误</span><br><span class="line">int *p = x;</span><br><span class="line">p++;//正确</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li>指针与字符串<ul>
+<li>定义字符串的两种方式<ul>
+<li>字符数组 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char arr[] = &quot;I Love ShangHai&quot;;</span><br><span class="line">printf(&quot;%s\n&quot;, arr);</span><br></pre></td></tr></table></figure></li>
+<li>字符串指针指向字符串 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 数组名保存的是数组第0个元素的地址，指针也可以保存第0个元素地址</span><br><span class="line">char* arr = &quot;I Love ShangHai&quot;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>字符串指针使用注意事项 <ul>
+<li>可以查看字符串的每一个字符 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char *arr = &quot;ShangHai&quot;;</span><br><span class="line">for(int i = 0; i &lt; strlen(arr); i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%c &quot;, *(arr+i));//输出结果： S h a n g H a i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>不可以修改字符串内容 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//  使用字符数组来保存的字符串是保存在栈里的，保存栈里面东西只能读和写，所有可以修改字符串的字符</span><br><span class="line">//  使用字符指针来保存字符串，它保存的是字符串常量地址，常量区是只读，所以我们不可以修改字符串中的字符</span><br><span class="line">char *arr = &quot;ShangHai&quot;;</span><br><span class="line">*(arr+2) = &#x27;d&#x27;;//错误</span><br></pre></td></tr></table></figure></li>
+<li>不能够直接接收键盘输入 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//  错误的原因是：arr是一个野指针，它并没有指向某一块内存空间，所以不允许这样写</span><br><span class="line">char *arr;</span><br><span class="line">scanf(&quot;%s&quot;, arr);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>指针可以指向一个函数，格式：返回值类型 (*指针变量名)(形参1, 形参2, …);<ul>
+<li>指针函数定义技巧：<ul>
+<li>1、把要指向函数头拷贝过来</li>
+<li>2、把函数名称使用小括号括起来</li>
+<li>3、在函数名称前面加上一个* <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int sum(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">int(*p)(int,int);</span><br><span class="line">p = sum;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：由于这类指针变量存储的是一个函数的入口地址，所以对它们作加减运算(比如p++)是无意义的，并且函数调用中”(指针变量名)”的两边的括号不可少,其中的不应该理解为求值运算,在此处它只是一种表示符号</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
     
 
     
@@ -255,7 +422,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://zhiye.com/tags/index.html" title="标签" target="_blank">http://zhiye.com/tags/index.html</a>
+          <a href="http://zhiye.com/2022/07/02/C语言字符串和指针/" title="C语言字符串和指针" target="_blank">http://zhiye.com/2022/07/02/C语言字符串和指针/</a>
         </li>
         
         <li>
@@ -272,6 +439,21 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -322,7 +504,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://zhiye.com/tags/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://zhiye.com/2022/07/02/C%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%8C%87%E9%92%88/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -334,6 +516,25 @@
   </div>
 </article>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/07/07/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E6%9E%9A%E4%B8%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C语言结构体和枚举
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/28/C%E8%AF%AD%E8%A8%80%E5%8E%9F%E5%8F%8D%E8%A1%A5%E7%A0%81%E5%92%8C%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言原反补码和内存存储</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -393,7 +594,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
